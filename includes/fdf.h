@@ -6,7 +6,7 @@
 /*   By: ehamza <ehamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 11:48:42 by ehamza            #+#    #+#             */
-/*   Updated: 2025/02/15 12:21:06 by ehamza           ###   ########.fr       */
+/*   Updated: 2025/02/16 21:41:45 by ehamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include "/usr/include/minilibx-linux/mlx.h"
 # include <X11/Xlib.h>
 # include <stdlib.h>
+# include <math.h>
+
 
 # define CURRENT_D CURRENT_DIR
 
@@ -28,6 +30,8 @@ typedef struct point
 	int		y;
 	int		z;
 	int		color;
+	int		iso_x;
+	int		iso_y;
 }			t_point;
 
 typedef struct s_map
@@ -91,5 +95,10 @@ t_fdf		*ft_init_map(t_fdf *env);
 int			handle_keypress(int keycode, t_fdf *env);
 int			handle_window_close(t_fdf *env);
 void		ret_error(const char *msg, t_fdf *env, int exit_code);
+
+// // // // fdf drawing functions   \\ \\ \\ \\.
+
+void	ft_draw_line(t_fdf *env ,t_point a, t_point b);
+void    ft_draw(t_fdf *env);
 
 #endif

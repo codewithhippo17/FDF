@@ -6,7 +6,7 @@
 /*   By: ehamza <ehamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 23:27:03 by ehamza            #+#    #+#             */
-/*   Updated: 2025/02/15 11:19:53 by ehamza           ###   ########.fr       */
+/*   Updated: 2025/02/16 23:30:30 by ehamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,13 @@ t_point	read_point(char *point, int x, int y)
 	t_point	s_point;
 
 	if (!point)
-		return ((t_point){0, 0, 0, 0xFFFFFF});
+		return ((t_point){0});
 	s_point.x = x;
 	s_point.y = y;
 	s_point.z = ft_atoi(point);
 	s_point.color = get_color(ft_strchr(point, ','));
+	s_point.iso_x = x  + (cos(30) * s_point.z);
+	s_point.iso_y = y  + (sin(30) * s_point.z);
+
 	return (s_point);
 }

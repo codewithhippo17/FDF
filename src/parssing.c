@@ -6,7 +6,7 @@
 /*   By: ehamza <ehamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:17:04 by ehamza            #+#    #+#             */
-/*   Updated: 2025/02/16 17:59:28 by ehamza           ###   ########.fr       */
+/*   Updated: 2025/02/16 18:16:10 by ehamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ t_map	*ft_read_file(int fd, t_map *s_map)
 	free(result);
 	if (!s_map->line)
 		return (s_map);
+	close(fd);
 	return (s_map->valid = 1, s_map);
 }
 

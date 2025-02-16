@@ -8,6 +8,7 @@ I := 3
 # fdf sources
 SRCS =	fdf.c src/fdf_utils.c src/fdf_helpers.c\
 		src/parssing.c src/parssing_utils.c src/parssing_helpers.c\
+		src/fdf_draw.c\
 		src/kill.c
 	
 OBJS = $(SRCS:.c=.o)
@@ -38,11 +39,10 @@ $(NAME): $(OBJS)
 	@$(eval I=$(shell echo $$(($(I)+1))))
 	@echo "[$(I)][ $^ ]   Bulding object files..."
 
+
 gdb: CFLAGS += -g
 gdb: re
 	@gdb -tui --args ./fdf map.fdf
-valgrind: re
-	@valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./fdf 42.fdf
 gnl:
 	@make -C includes/gnl > /dev/null 2>&1
 	@echo "[1][...gnl...] Successfully compiled."
@@ -72,5 +72,8 @@ fclean: clean
 	@echo ".................................." 
 
 re: fclean all
+
+valgrind: re
+	@valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./fdf map.fdf
 
 .PHONY: all clean fclean re ft_printf libft gnl
