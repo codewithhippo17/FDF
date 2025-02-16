@@ -42,7 +42,7 @@ gdb: CFLAGS += -g
 gdb: re
 	@gdb -tui --args ./fdf map.fdf
 valgrind: re
-	@valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./fdf map.fdf
+	@valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./fdf 42.fdf
 gnl:
 	@make -C includes/gnl > /dev/null 2>&1
 	@echo "[1][...gnl...] Successfully compiled."

@@ -6,7 +6,7 @@
 /*   By: ehamza <ehamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 11:36:54 by ehamza            #+#    #+#             */
-/*   Updated: 2025/02/16 14:49:02 by ehamza           ###   ########.fr       */
+/*   Updated: 2025/02/16 17:55:32 by ehamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,17 +80,17 @@ t_fdf	*ft_init(const char *path)
 	ft_get_display(env);
 	if (!env->mlx)
 		ret_error("error connecting to graphics server", env, 1);
-	env->win = mlx_new_window(env->mlx, 300, 300, env->ti);
+	env->win = mlx_new_window(env->mlx, env->s_width, env->s_height, env->ti);
 	if (!env->win)
 		ret_error("error initializing window", env, 1);
 	free(env->ti);
-	env->img = mlx_new_image(env->mlx, env->s_width, env->s_height);
-	if (!env->img)
-	{
-		ret_error("error initializing image", env, 1);
-	}
 	env = ft_init_map(env);
 	return (env);
 }
 
+	// env->img = mlx_new_image(env->mlx, env->s_width, env->s_height);
+	// if (!env->img)
+	// {
+	// 	ret_error("error initializing image", env, 1);
+	// }
 // env->win = mlx_new_window(env->mlx, env->s_width, env->s_height, env->ti);
