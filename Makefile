@@ -25,7 +25,7 @@ LIBS =	-L/usr/include/minilibx-linux\
 		-L./includes/gnl\
 		-L./includes/ft_printf\
 		-L./includes/libft\
-		-lmlx -lX11 -lXext -lft -lgnl -lftprintf 
+		-lmlx -lX11 -lXext -lft -lgnl -lftprintf -lm
 
 all: gnl ft_printf libft $(NAME)
 
@@ -74,6 +74,6 @@ fclean: clean
 re: fclean all
 
 valgrind: re
-	@valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./fdf map.fdf
+	@valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./fdf 42.fdf
 
 .PHONY: all clean fclean re ft_printf libft gnl

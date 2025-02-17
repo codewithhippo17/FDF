@@ -6,7 +6,7 @@
 /*   By: ehamza <ehamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 11:36:54 by ehamza            #+#    #+#             */
-/*   Updated: 2025/02/16 22:10:33 by ehamza           ###   ########.fr       */
+/*   Updated: 2025/02/17 14:56:16 by ehamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,9 +88,3 @@ t_fdf	*ft_init(const char *path)
 	return (env);
 }
 
-	// env->img = mlx_new_image(env->mlx, env->s_width, env->s_height);
-	// if (!env->img)
-	// {
-	// 	ret_error("error initializing image", env, 1);
-	// }
-// env->win = mlx_new_window(env->mlx, env->s_width, env->s_height, env->ti);

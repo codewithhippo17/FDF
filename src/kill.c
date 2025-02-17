@@ -6,7 +6,7 @@
 /*   By: ehamza <ehamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 11:20:33 by ehamza            #+#    #+#             */
-/*   Updated: 2025/02/16 18:19:49 by ehamza           ###   ########.fr       */
+/*   Updated: 2025/02/17 14:54:55 by ehamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,3 @@ void	cleanup_and_exit(t_fdf *env)
 	free(env);
 	exit(0);
 }
-
-	// if (env->img)
-	// 	mlx_destroy_image(env->mlx, env->img);
