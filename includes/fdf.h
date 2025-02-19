@@ -6,7 +6,7 @@
 /*   By: ehamza <ehamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 11:48:42 by ehamza            #+#    #+#             */
-/*   Updated: 2025/02/16 21:41:45 by ehamza           ###   ########.fr       */
+/*   Updated: 2025/02/19 19:19:26 by ehamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,14 @@ typedef struct point
 
 typedef struct s_map
 {
-	int		height;
-	int		width;
+	int		m_height;
+	int		m_width;
 	int		valid;
 	t_point	**point;
 	char	**line;
+	int		max_isox;
+	int		max_isoy;
+
 }			t_map;
 
 typedef struct s_fdf
@@ -50,8 +53,12 @@ typedef struct s_fdf
 	void	*img;
 	char	*data_addr;
 	char	*ti;
+	// screen shape
 	int		s_width;
 	int		s_height;
+	// image shape
+	int		width;
+	int		height;
 	t_map	*s_map;
 }			t_fdf;
 
@@ -70,6 +77,7 @@ t_map		*read_map(t_map *s_map, int height, int width);
 // // // //  parssing utils functions   \\ \\ \\ \\.
 
 t_point		read_point(char *point, int x, int y);
+t_map		*ft_max_iso(t_map *s_map);
 int			v_point(char *big);
 int			get_color(char *point);
 int			is_dec(char *big, int idx);
@@ -95,10 +103,15 @@ t_fdf		*ft_init_map(t_fdf *env);
 int			handle_keypress(int keycode, t_fdf *env);
 int			handle_window_close(t_fdf *env);
 void		ret_error(const char *msg, t_fdf *env, int exit_code);
+int			ft_min(int a, int b);
+
+// // // // fdf scaling functions   \\ \\ \\ \\.
+
+t_fdf    *ft_scale(t_fdf *env);
+
 
 // // // // fdf drawing functions   \\ \\ \\ \\.
-
-void	ft_draw_line(t_fdf *env ,t_point a, t_point b);
-void    ft_draw(t_fdf *env);
+// void	ft_draw_line(t_fdf *env ,t_point a, t_point b);
+void ft_draw(t_fdf *env);
 
 #endif

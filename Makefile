@@ -8,6 +8,7 @@ I := 3
 # fdf sources
 SRCS =	fdf.c src/fdf_utils.c src/fdf_helpers.c\
 		src/parssing.c src/parssing_utils.c src/parssing_helpers.c\
+		src/fdf_scale.c\
 		src/fdf_draw.c\
 		src/kill.c
 	

@@ -6,7 +6,7 @@
 /*   By: ehamza <ehamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 09:12:10 by ehamza            #+#    #+#             */
-/*   Updated: 2025/02/16 21:48:11 by ehamza           ###   ########.fr       */
+/*   Updated: 2025/02/19 19:00:39 by ehamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,11 @@ int	main(int ac, char *av[])
 	env = ft_init(av[1]);
 	fd = ft_file_format(env, av[1]);
 	env = ft_parssing(fd, env);
-	ft_draw(env);
+	// env = ft_scale(env);
+	
+	ft_printf("%d   %d\n", env->s_map->max_isox, env->s_map->max_isoy);
+
+	// ft_draw(env);
 	mlx_hook(env->win, 2, 1L << 0, handle_keypress, env);
 	mlx_hook(env->win, 17, 1L << 17, handle_window_close, env);
 	mlx_loop(env->mlx);

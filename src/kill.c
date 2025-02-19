@@ -6,7 +6,7 @@
 /*   By: ehamza <ehamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 11:20:33 by ehamza            #+#    #+#             */
-/*   Updated: 2025/02/17 14:54:55 by ehamza           ###   ########.fr       */
+/*   Updated: 2025/02/19 14:22:20 by ehamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_free_point(t_map *s_map)
 	if (!s_map || !s_map->point)
 		return ;
 	i = 0;
-	while (i < s_map->height)
+	while (i < s_map->m_height)
 	{
 		if (s_map->point[i])
 			free(s_map->point[i]);

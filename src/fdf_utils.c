@@ -6,7 +6,7 @@
 /*   By: ehamza <ehamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 11:34:41 by ehamza            #+#    #+#             */
-/*   Updated: 2025/02/15 11:34:42 by ehamza           ###   ########.fr       */
+/*   Updated: 2025/02/19 15:35:31 by ehamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,13 @@ void	ret_error(const char *msg, t_fdf *env, int exit_code)
 	ft_putstr_fd("\n", 2);
 	cleanup_and_exit(env);
 	exit(exit_code);
+}
+
+int		ft_min(int a, int b)
+{
+	if (a < b)
+	{
+		return (a);
+	}
+	return (b);
 }

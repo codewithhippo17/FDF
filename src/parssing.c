@@ -6,7 +6,7 @@
 /*   By: ehamza <ehamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:17:04 by ehamza            #+#    #+#             */
-/*   Updated: 2025/02/16 18:16:10 by ehamza           ###   ########.fr       */
+/*   Updated: 2025/02/19 19:00:27 by ehamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,11 @@ t_map	*calc_shape(t_map *s_map)
 	char	**split;
 	int		checker;
 
-	s_map->height = 0;
+	s_map->m_height = 0;
 	checker = 0;
-	while (s_map->line[s_map->height] != NULL)
+	while (s_map->line[s_map->m_height] != NULL)
 	{
-		split = ft_split(s_map->line[s_map->height], ' ');
+		split = ft_split(s_map->line[s_map->m_height], ' ');
 		if (!split)
 			return (s_map->valid = 0, s_map);
 		if (checker == 0)
@@ -58,12 +58,12 @@ t_map	*calc_shape(t_map *s_map)
 			while (split[checker])
 				checker++;
 		}
-		s_map->width = 0;
-		while (split[s_map->width])
-			s_map->width++;
-		if (checker != s_map->width)
+		s_map->m_width = 0;
+		while (split[s_map->m_width])
+			s_map->m_width++;
+		if (checker != s_map->m_width)
 			return (ft_free_array(split), s_map->valid = 0, s_map);
-		s_map->height++;
+		s_map->m_height++;
 		ft_free_array(split);
 	}
 	s_map->valid = 2;
@@ -135,8 +135,8 @@ t_fdf	*ft_parssing(int fd, t_fdf *env)
 			env->s_map = v_cordz(env->s_map);
 			if (env->s_map->valid == 3)
 			{
-				env->s_map = read_map(env->s_map, env->s_map->height,
-						env->s_map->width);
+				env->s_map = read_map(env->s_map, env->s_map->m_height,
+						env->s_map->m_width);
 				if (env->s_map->valid == 5)
 					return (env);
 			}
@@ -146,5 +146,6 @@ t_fdf	*ft_parssing(int fd, t_fdf *env)
 	{
 		ret_error("Map error", env, 1);
 	}
+	env->s_map = ft_max_iso(env->s_map);
 	return (env);
 }

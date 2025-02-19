@@ -6,7 +6,7 @@
 /*   By: ehamza <ehamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 23:27:03 by ehamza            #+#    #+#             */
-/*   Updated: 2025/02/17 12:36:40 by ehamza           ###   ########.fr       */
+/*   Updated: 2025/02/19 19:21:38 by ehamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,34 @@ t_point	read_point(char *point, int x, int y)
 	s_point.y = y;
 	s_point.z = ft_atoi(point);
 	s_point.color = get_color(ft_strchr(point, ','));
-	s_point.iso_x = x * cos(30) + y * cos(30 + 2) +  s_point.z * cos(30 - 2);
-	s_point.iso_y = x * sin(30) + y * sin(30 + 2) +  s_point.z * sin(30 - 2);
+	// x' =(x−z) * cos(30)
+	// y' = y+(x+z)⋅sin(30)
+	s_point.iso_x = x - s_point.z * cos(30);
+	s_point.iso_y = y + x + s_point.z * sin(30);
 	return (s_point);
+}
+
+t_map	*ft_max_iso(t_map *s_map)
+{
+	int (i), (j);
+
+	i = 0;
+	while (i < s_map->m_height)
+	{
+		j = 0;
+		while (j < s_map->m_width)
+		{
+			if (s_map->max_isox < s_map->point[i][j].iso_x)
+			{
+				s_map->max_isox = s_map->point[i][j].iso_x;
+			}
+			if (s_map->max_isoy < s_map->point[i][j].iso_y)
+			{
+				s_map->max_isoy = s_map->point[i][j].iso_y;
+			}
+			j++;
+		}
+		i++;
+	}
+	return (s_map);
 }
