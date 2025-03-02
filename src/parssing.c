@@ -6,7 +6,7 @@
 /*   By: ehamza <ehamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:17:04 by ehamza            #+#    #+#             */
-/*   Updated: 2025/02/19 19:00:27 by ehamza           ###   ########.fr       */
+/*   Updated: 2025/03/02 13:54:21 by ehamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,15 +137,12 @@ t_fdf	*ft_parssing(int fd, t_fdf *env)
 			{
 				env->s_map = read_map(env->s_map, env->s_map->m_height,
 						env->s_map->m_width);
-				if (env->s_map->valid == 5)
-					return (env);
 			}
 		}
 	}
 	if (env->s_map->valid != 5)
-	{
 		ret_error("Map error", env, 1);
-	}
-	env->s_map = ft_max_iso(env->s_map);
+	// env->s_map = 
+	ft_max_iso(env->s_map);
 	return (env);
 }

@@ -6,7 +6,7 @@
 /*   By: ehamza <ehamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 09:12:10 by ehamza            #+#    #+#             */
-/*   Updated: 2025/02/19 19:00:39 by ehamza           ###   ########.fr       */
+/*   Updated: 2025/03/02 15:53:48 by ehamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,67 @@ int	main(int ac, char *av[])
 	env = ft_init(av[1]);
 	fd = ft_file_format(env, av[1]);
 	env = ft_parssing(fd, env);
-	// env = ft_scale(env);
-	
-	ft_printf("%d   %d\n", env->s_map->max_isox, env->s_map->max_isoy);
 
-	// ft_draw(env);
+	int i = 0;
+	int j = 0;
+	while (i < env->s_map->m_height)
+	{
+		j = 0;
+		while (j < env->s_map->m_width)
+		{
+			printf("(%d,%d,%d) ", env->s_map->point[i][j].x, env->s_map->point[i][j].y, env->s_map->point[i][j].z);
+			j++;
+		}
+		printf("\n");
+		i++;
+	}
+	printf("\n\n");
+
+	i = 0;
+	while (i < env->s_map->m_height)
+	{
+		j = 0;
+		while (j < env->s_map->m_width)
+		{
+			printf("(%d,%d) ", env->s_map->point[i][j].iso_x, env->s_map->point[i][j].iso_y);
+			j++;
+		}
+		printf("\n");
+		i++;
+	}
+	printf("\nisox_min %d\nisoy_max %d\n\n", env->s_map->min_isox, env->s_map->max_isoy);
+	
+	
+	ft_render(env->s_map);
+
+	i = 0;
+	printf("\ncoordonates of the isometric projection\n\n");
+	while (i < env->s_map->m_height)
+	{
+		j = 0;
+		while (j < env->s_map->m_width)
+		{
+			printf("(%d,%d) ", env->s_map->point[i][j].iso_x, env->s_map->point[i][j].iso_y);
+			j++;
+		}
+		printf("\n");
+		i++;
+	}
+	ft_scale(env);
+	i = 0;
+	printf("\ncoordonates of the isometric projection after scaling\n\n");
+	while (i < env->s_map->m_height)
+	{
+		j = 0;
+		while (j < env->s_map->m_width)
+		{
+			printf("(%d,%d) ", env->s_map->point[i][j].iso_x, env->s_map->point[i][j].iso_y);
+			j++;
+		}
+		printf("\n");
+		i++;
+	}
+	ft_draw(env);
 	mlx_hook(env->win, 2, 1L << 0, handle_keypress, env);
 	mlx_hook(env->win, 17, 1L << 17, handle_window_close, env);
 	mlx_loop(env->mlx);

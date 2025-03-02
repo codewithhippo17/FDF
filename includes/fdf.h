@@ -6,7 +6,7 @@
 /*   By: ehamza <ehamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 11:48:42 by ehamza            #+#    #+#             */
-/*   Updated: 2025/02/19 19:19:26 by ehamza           ###   ########.fr       */
+/*   Updated: 2025/03/02 15:34:51 by ehamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <X11/Xlib.h>
 # include <stdlib.h>
 # include <math.h>
+# include <limits.h>
 
 
 # define CURRENT_D CURRENT_DIR
@@ -41,7 +42,7 @@ typedef struct s_map
 	int		valid;
 	t_point	**point;
 	char	**line;
-	int		max_isox;
+	int		min_isox;
 	int		max_isoy;
 
 }			t_map;
@@ -77,12 +78,13 @@ t_map		*read_map(t_map *s_map, int height, int width);
 // // // //  parssing utils functions   \\ \\ \\ \\.
 
 t_point		read_point(char *point, int x, int y);
-t_map		*ft_max_iso(t_map *s_map);
+void		ft_max_iso(t_map *s_map);
 int			v_point(char *big);
 int			get_color(char *point);
 int			is_dec(char *big, int idx);
 int			is_hex(char *big);
 int			ft_strlenz(char *str);
+
 
 // // // // memory leaks functions   \\ \\ \\ \\.
 
@@ -107,11 +109,12 @@ int			ft_min(int a, int b);
 
 // // // // fdf scaling functions   \\ \\ \\ \\.
 
-t_fdf    *ft_scale(t_fdf *env);
+void		ft_render(t_map *map);
+void		ft_scale(t_fdf *env);
 
 
 // // // // fdf drawing functions   \\ \\ \\ \\.
 // void	ft_draw_line(t_fdf *env ,t_point a, t_point b);
-void ft_draw(t_fdf *env);
+void		ft_draw(t_fdf *env);
 
 #endif

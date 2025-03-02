@@ -6,7 +6,7 @@
 /*   By: ehamza <ehamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 15:55:30 by ehamza            #+#    #+#             */
-/*   Updated: 2025/02/19 18:44:55 by ehamza           ###   ########.fr       */
+/*   Updated: 2025/03/02 15:56:03 by ehamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,21 +32,17 @@
 
 void ft_draw(t_fdf *env)
 {
-    t_point p;
-    int     x;
-    int     y;
-
-    y = 0;
-    while (y < env->s_map->m_height)
-    {
-        x = 0;
-        while (x < env->s_map->m_width)
-        {
-            p = env->s_map->point[y][x];
-            mlx_pixel_put(env->mlx, env->win, p.iso_x, p.iso_y, 0xff0000);
-            x++;
-        }
-        y++;
-    }   
+    int (i), (j);
+	i = 0;
+	while (i < env->s_map->m_height)
+	{
+		j = 0;
+		while (j < env->s_map->m_width)
+		{
+            mlx_pixel_put(env->mlx, env->win, env->s_map->point[i][j].iso_x + 500, env->s_map->point[i][j].iso_y + 500, 0xffffff);
+			j++;
+		}
+		i++;
+	}
 }
 
