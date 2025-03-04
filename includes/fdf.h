@@ -6,7 +6,7 @@
 /*   By: ehamza <ehamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 11:48:42 by ehamza            #+#    #+#             */
-/*   Updated: 2025/03/02 15:34:51 by ehamza           ###   ########.fr       */
+/*   Updated: 2025/03/04 00:44:49 by ehamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ typedef struct s_map
 	t_point	**point;
 	char	**line;
 	int		min_isox;
+	int		min_isoy;
+	int		max_isox;
 	int		max_isoy;
 
 }			t_map;

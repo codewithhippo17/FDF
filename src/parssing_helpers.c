@@ -6,7 +6,7 @@
 /*   By: ehamza <ehamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 23:27:03 by ehamza            #+#    #+#             */
-/*   Updated: 2025/03/03 01:57:54 by ehamza           ###   ########.fr       */
+/*   Updated: 2025/03/04 00:46:37 by ehamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,14 @@ void	ft_max_iso(t_map *s_map)
 			if (s_map->max_isoy < s_map->point[i][j].iso_y)
 			{
 				s_map->max_isoy = s_map->point[i][j].iso_y;
+			}
+			if (s_map->min_isoy > s_map->point[i][j].iso_y)
+			{
+				s_map->min_isoy = s_map->point[i][j].iso_y;
+			}
+			if (s_map->max_isox < s_map->point[i][j].iso_x)
+			{
+				s_map->max_isox = s_map->point[i][j].iso_x;
 			}
 			j++;
 		}

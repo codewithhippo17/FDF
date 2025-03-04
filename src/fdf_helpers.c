@@ -6,7 +6,7 @@
 /*   By: ehamza <ehamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 11:36:54 by ehamza            #+#    #+#             */
-/*   Updated: 2025/03/02 15:24:52 by ehamza           ###   ########.fr       */
+/*   Updated: 2025/03/04 00:45:22 by ehamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ t_fdf	*ft_init_map(t_fdf *env)
 	env->s_map->m_width = 0;
 	env->s_map->valid = 0;
 	env->s_map->min_isox = INT_MAX;
+	env->s_map->min_isoy = INT_MAX;
+	env->s_map->max_isox = INT_MIN;
 	env->s_map->max_isoy = INT_MIN;
 	env->s_map->point = NULL;
 	env->s_map->line = NULL;

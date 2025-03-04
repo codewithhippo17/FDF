@@ -6,7 +6,7 @@
 /*   By: ehamza <ehamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 09:12:10 by ehamza            #+#    #+#             */
-/*   Updated: 2025/03/03 01:43:10 by ehamza           ###   ########.fr       */
+/*   Updated: 2025/03/04 00:47:27 by ehamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,19 @@ int	main(int ac, char *av[])
 
 	int i = 0;
 	int j = 0;
-	while (i < env->s_map->m_height)
-	{
-		j = 0;
-		while (j < env->s_map->m_width)
-		{
-			printf("(%d,%d,%d) ", env->s_map->point[i][j].x, env->s_map->point[i][j].y, env->s_map->point[i][j].z);
-			j++;
-		}
-		printf("\n");
-		i++;
-	}
-	printf("\n\n");
 
+	// while (i < env->s_map->m_height)
+	// {
+	// 	j = 0;
+	// 	while (j < env->s_map->m_width)
+	// 	{
+	// 		printf("(%d,%d) ", env->s_map->point[i][j].iso_x, env->s_map->point[i][j].iso_y);
+	// 		j++;
+	// 	}
+	// 	printf("\n");
+	// 	i++;
+	// }
+	// ft_render(env);
 	i = 0;
 	while (i < env->s_map->m_height)
 	{
@@ -51,6 +51,7 @@ int	main(int ac, char *av[])
 		i++;
 	}
 	printf("\nisox_min %d\nisoy_max %d\n\n", env->s_map->min_isox, env->s_map->max_isoy);
+	printf("\nisoy_min %d\nisox_max %d\n\n", env->s_map->min_isoy, env->s_map->max_isox);
 
 	i = 0;
 	ft_scale(env);
