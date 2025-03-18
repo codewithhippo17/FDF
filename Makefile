@@ -75,7 +75,7 @@ fclean: clean
 re: fclean all 
 
 valgrind: re
-	@valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes  ./fdf maps/test.fdf
+	@valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes  ./fdf maps/42.fdf
 	$(MAKE) clean
 
 .PHONY: all clean fclean re ft_printf libft gnl
