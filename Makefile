@@ -1,7 +1,7 @@
 # Project: fdf
 NAME = fdf
 CC = cc
-CURRENT_DIR := $(shell pwd)/maps/
+CURRENT_DIR := $(shell pwd)/
 CFLAGS = -Wall -Wextra -Werror -DCURRENT_DIR=\"$(CURRENT_DIR)\"
 I := 3
 
@@ -72,9 +72,10 @@ fclean: clean
 	@echo  "\e[33m[5][...Fdf...] Fdf shut down.\e[0m"
 	@echo ".................................." 
 
-re: fclean all
+re: fclean all 
 
 valgrind: re
-	@valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./fdf map.fdf
+	@valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes  ./fdf maps/test.fdf
+	$(MAKE) clean
 
 .PHONY: all clean fclean re ft_printf libft gnl

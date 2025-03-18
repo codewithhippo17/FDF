@@ -6,7 +6,7 @@
 /*   By: ehamza <ehamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 15:46:54 by ehamza            #+#    #+#             */
-/*   Updated: 2025/03/18 03:48:35 by ehamza           ###   ########.fr       */
+/*   Updated: 2025/03/18 07:30:06 by ehamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	ft_max_shape(t_fdf *env)
 {
+	ft_max_iso(env->s_map);
 	env->width = env->s_map->max_isox - env->s_map->min_isox;
 	env->height = env->s_map->max_isoy - env->s_map->min_isoy;
 }
@@ -27,8 +28,8 @@ void	ft_scale(t_fdf *env)
 	int	j;
 
 	ft_max_shape(env);
-	x_scale = ft_round((double)env->s_width / (double)env->width);
-	y_scale = ft_round((double)env->s_height / (double)env->height);
+	x_scale = (env->s_width / env->width);
+	y_scale = (env->s_height / env->height);
 	scale = ft_min(x_scale, y_scale);
 	printf("\nscale : %d\n", scale);
 	i = 0;
@@ -50,14 +51,15 @@ void	ft_center(t_fdf *env)
 	int	trans_x;
 	int	trans_y;
 	int	i;
-	int j;
-	
+	int	j;
+
 	i = 0;
-	trans_x = env->s_map->max_isox - ft_round((((double)env->width) / 2.00));
-	trans_y = env->s_map->max_isoy - ft_round((((double)env->height) / 2.00));
-	trans_x += env->s_width / 2;
-	trans_y += env->s_height / 2;
-	printf("\ntrans %d\n", trans_x);
+	ft_max_shape(env);
+	trans_x = env->s_width / 2;
+	trans_y = env->s_height / 2;
+	trans_x -= env->s_map->max_isox - env->width / 2;
+	trans_y -= env->s_map->max_isoy - env->height / 2;
+	printf("\ntransx %d\ntransy %d\n", trans_x, trans_y);
 	while (i < env->s_map->m_height)
 	{
 		j = 0;

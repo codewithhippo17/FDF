@@ -6,7 +6,7 @@
 /*   By: ehamza <ehamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 11:48:42 by ehamza            #+#    #+#             */
-/*   Updated: 2025/03/18 03:42:47 by ehamza           ###   ########.fr       */
+/*   Updated: 2025/03/18 07:35:55 by ehamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 # include <math.h>
 # include <limits.h>
 
-
 # define CURRENT_D CURRENT_DIR
 
 typedef struct point
@@ -37,15 +36,15 @@ typedef struct point
 
 typedef struct s_map
 {
-	int		m_height;
-	int		m_width;
-	int		valid;
 	t_point	**point;
 	char	**line;
+	int		m_height;
+	int		m_width;
 	int		min_isox;
 	int		min_isoy;
 	int		max_isox;
 	int		max_isoy;
+	int		valid;
 
 }			t_map;
 
@@ -54,21 +53,18 @@ typedef struct s_fdf
 	void	*mlx;
 	void	*win;
 	void	*img;
+	t_map	*s_map;
 	char	*data_addr;
 	char	*ti;
-	// screen shape
 	int		s_width;
 	int		s_height;
-	// image shape
 	int		width;
 	int		height;
-	t_map	*s_map;
 }			t_fdf;
 
 // // // //  fdf functions  \\ \\ \\ \\.
 
 t_fdf		*ft_init(const char *path);
-// void		ft_draw();
 
 // // // //  parssing functions   \\ \\ \\ \\.
 
@@ -88,7 +84,6 @@ int			is_hex(char *big);
 int			ft_strlenz(char *str);
 int			ft_round(double x);
 
-
 // // // // memory leaks functions   \\ \\ \\ \\.
 
 void		ft_free_array(char **array);
@@ -99,7 +94,6 @@ void		cleanup_and_exit(t_fdf *env);
 // // // // fdf helpers functions   \\ \\ \\ \\.
 
 int			v_filename(char *filename);
-void		ft_get_display(t_fdf *env);
 int			ft_file_format(t_fdf *env, char *filename);
 t_fdf		*ft_init_map(t_fdf *env);
 
@@ -115,9 +109,8 @@ int			ft_min(int a, int b);
 void		ft_center(t_fdf *env);
 void		ft_scale(t_fdf *env);
 
-
 // // // // fdf drawing functions   \\ \\ \\ \\.
-// void	ft_draw_line(t_fdf *env ,t_point a, t_point b);
+
 void		ft_draw(t_fdf *env);
 
 #endif

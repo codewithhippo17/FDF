@@ -6,7 +6,7 @@
 /*   By: ehamza <ehamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 11:36:54 by ehamza            #+#    #+#             */
-/*   Updated: 2025/03/18 03:30:45 by ehamza           ###   ########.fr       */
+/*   Updated: 2025/03/18 06:37:21 by ehamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,8 @@ t_fdf	*ft_init(const char *path)
 	env->win = mlx_new_window(env->mlx, env->s_width, env->s_height, env->ti);
 	if (!env->win)
 		ret_error("error initializing window", env, 1);
+	env->s_height = 1000;
+	env->s_width = 1000;
 	free(env->ti);
 	return (env);
 }

@@ -6,7 +6,7 @@
 /*   By: ehamza <ehamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 09:12:10 by ehamza            #+#    #+#             */
-/*   Updated: 2025/03/18 03:48:50 by ehamza           ###   ########.fr       */
+/*   Updated: 2025/03/18 06:13:01 by ehamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,15 @@ int	main(int ac, char *av[])
 		printf("\n");
 		i++;
 	}
+
+
+	ft_scale(env);
+	
+	
 	printf("\nisox_min %d\nisoy_max %d\n\n", env->s_map->min_isox, env->s_map->max_isoy);
 	printf("\nisoy_min %d\nisox_max %d\n\n", env->s_map->min_isoy, env->s_map->max_isox);
-
-	i = 0;
-	ft_scale(env);
 	printf("\ncoordonates of the isometric projection after scaling\n\n");
+	i = 0;
 	while (i < env->s_map->m_height)
 	{
 		j = 0;
@@ -55,6 +58,10 @@ int	main(int ac, char *av[])
 		i++;
 	}
 	ft_center(env);
+
+
+	printf("\nisox_min %d\nisoy_max %d\n\n", env->s_map->min_isox, env->s_map->max_isoy);
+	printf("\nisoy_min %d\nisox_max %d\n\n", env->s_map->min_isoy, env->s_map->max_isox);
 	printf("\ncoordonates of the isometric projection after centering\n\n");
 	i = 0;
 	while (i < env->s_map->m_height)
