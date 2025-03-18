@@ -6,7 +6,7 @@
 /*   By: ehamza <ehamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 11:36:54 by ehamza            #+#    #+#             */
-/*   Updated: 2025/03/18 06:37:21 by ehamza           ###   ########.fr       */
+/*   Updated: 2025/03/18 07:52:34 by ehamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	ft_file_format(t_fdf *env, char *filename)
 	char	*path;
 	int		fd;
 
-	path = ft_strjoin(CURRENT_DIR, filename);
+	path = ft_strjoin(CURRENT_D, filename);
 	if (!path)
 		ret_error("malloc error", env, 1);
 	if (!(v_filename(filename)))

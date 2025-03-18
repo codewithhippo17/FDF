@@ -1,7 +1,7 @@
 # Project: fdf
 NAME = fdf
 CC = cc
-CURRENT_DIR := $(shell pwd)/
+# CURRENT_DIR := $(shell pwd)/
 CFLAGS = -Wall -Wextra -Werror -DCURRENT_DIR=\"$(CURRENT_DIR)\"
 I := 3
 

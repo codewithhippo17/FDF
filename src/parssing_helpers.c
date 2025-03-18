@@ -6,7 +6,7 @@
 /*   By: ehamza <ehamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 23:27:03 by ehamza            #+#    #+#             */
-/*   Updated: 2025/03/18 03:07:33 by ehamza           ###   ########.fr       */
+/*   Updated: 2025/03/18 07:57:28 by ehamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,9 @@ t_point	read_point(char *point, int x, int y)
 
 void	ft_max_iso(t_map *s_map)
 {
-	int (i), (j);
+	int	i;
+	int	j;
+
 	i = 0;
 	while (i < s_map->m_height)
 	{
