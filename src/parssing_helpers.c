@@ -6,7 +6,7 @@
 /*   By: ehamza <ehamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 23:27:03 by ehamza            #+#    #+#             */
-/*   Updated: 2025/03/04 00:46:37 by ehamza           ###   ########.fr       */
+/*   Updated: 2025/03/18 03:07:33 by ehamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_round(double x)
 {
-	int n;
+	int	n;
 
 	n = (int)x;
 	if (x - (double)n <= 0.5)
@@ -61,21 +61,13 @@ void	ft_max_iso(t_map *s_map)
 		while (j < s_map->m_width)
 		{
 			if (s_map->min_isox > s_map->point[i][j].iso_x)
-			{
 				s_map->min_isox = s_map->point[i][j].iso_x;
-			}
 			if (s_map->max_isoy < s_map->point[i][j].iso_y)
-			{
 				s_map->max_isoy = s_map->point[i][j].iso_y;
-			}
 			if (s_map->min_isoy > s_map->point[i][j].iso_y)
-			{
 				s_map->min_isoy = s_map->point[i][j].iso_y;
-			}
 			if (s_map->max_isox < s_map->point[i][j].iso_x)
-			{
 				s_map->max_isox = s_map->point[i][j].iso_x;
-			}
 			j++;
 		}
 		i++;

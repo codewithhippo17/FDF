@@ -6,7 +6,7 @@
 /*   By: ehamza <ehamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 11:36:54 by ehamza            #+#    #+#             */
-/*   Updated: 2025/03/04 00:45:22 by ehamza           ###   ########.fr       */
+/*   Updated: 2025/03/18 03:30:45 by ehamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,20 @@ int	v_filename(char *filename)
 	return (0);
 }
 
-void	ft_get_display(t_fdf *env)
-{
-	Display	*display;
+// void	ft_get_display(t_fdf *env)
+// {
+// 	Display	*display;
 
-	display = XOpenDisplay(NULL);
-	if (!display)
-		ret_error("Cannot open display", env, 1);
-	env->s_width = DisplayWidth(display, DefaultScreen(display));
-	env->width -= env->s_width * 0.35;
-	env->s_height = DisplayHeight(display, DefaultScreen(display));
-	env->height -= env->s_height * 0.35;
-	
-	XCloseDisplay(display);
-}
+// 	display = XOpenDisplay(NULL);
+// 	if (!display)
+// 		ret_error("Cannot open display", env, 1);
+// 	env->s_width = DisplayWidth(display, DefaultScreen(display));
+// 	env->width -= env->s_width * 0.35;
+// 	env->s_height = DisplayHeight(display, DefaultScreen(display));
+// 	env->height -= env->s_height * 0.35;
+// 	printf("\n%d\n%d\n", env->s_width, env->s_height);
+// 	XCloseDisplay(display);
+// }
 
 int	ft_file_format(t_fdf *env, char *filename)
 {
@@ -70,10 +70,12 @@ t_fdf	*ft_init_map(t_fdf *env)
 	env->s_map->min_isoy = INT_MAX;
 	env->s_map->max_isox = INT_MIN;
 	env->s_map->max_isoy = INT_MIN;
-	env->s_map->point = NULL;
-	env->s_map->line = NULL;
 	env->width = 0;
 	env->height = 0;
+	env->s_map->point = NULL;
+	env->s_map->line = NULL;
+	env->s_height = 1080;
+	env->s_width = 1920;
 	return (env);
 }
 
@@ -88,13 +90,10 @@ t_fdf	*ft_init(const char *path)
 	env->mlx = mlx_init();
 	if (!env->mlx)
 		ret_error("error connecting to graphics server", env, 1);
-	ft_get_display(env);
+	env = ft_init_map(env);
 	env->win = mlx_new_window(env->mlx, env->s_width, env->s_height, env->ti);
 	if (!env->win)
 		ret_error("error initializing window", env, 1);
-	// env->img = mlx_new_image (env->mlx, width, height);
 	free(env->ti);
-	env = ft_init_map(env);
 	return (env);
 }
-

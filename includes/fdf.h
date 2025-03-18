@@ -6,7 +6,7 @@
 /*   By: ehamza <ehamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 11:48:42 by ehamza            #+#    #+#             */
-/*   Updated: 2025/03/04 00:44:49 by ehamza           ###   ########.fr       */
+/*   Updated: 2025/03/18 03:42:47 by ehamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ int			get_color(char *point);
 int			is_dec(char *big, int idx);
 int			is_hex(char *big);
 int			ft_strlenz(char *str);
+int			ft_round(double x);
 
 
 // // // // memory leaks functions   \\ \\ \\ \\.
@@ -111,7 +112,7 @@ int			ft_min(int a, int b);
 
 // // // // fdf scaling functions   \\ \\ \\ \\.
 
-void		ft_render(t_map *map);
+void		ft_center(t_fdf *env);
 void		ft_scale(t_fdf *env);
 
 
