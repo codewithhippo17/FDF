@@ -17,7 +17,7 @@ $(NAME): $(OFILES)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OFILES) $(OFILES_BONUS)
+	rm -f $(OFILES)
 
 fclean: clean
 	rm -f $(NAME)
@@ -25,3 +25,4 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
+.SECONDARY : $(OFILES)
